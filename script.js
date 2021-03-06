@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 let fs = require("fs");
 let cmd = process.argv.slice(2);
 let options = [];
@@ -16,8 +18,6 @@ for (let x in cmd) {
   }
 }
 
-console.log(options);
-console.log(files);
 let str = [];
 
 for (let x in files) {
@@ -51,7 +51,7 @@ function numberNonEmpty(arr) {
   let ans = [];
   let number = 1;
   for (x in arr) {
-    if (arr[x] == "" || arr[x] == "\r") {
+    if (arr[x] ==="" || arr[x] === "\r") {
       ans[x] = arr[x];
     } else {
       ans[x] = number + " " + arr[x];
@@ -70,13 +70,13 @@ function numberAll(arr) {
 }
 function removeLargeSpaces(arr) {
   let ans = [];
-  if (arr[0] == "\r") {
+  if (arr[0] === "\r") {
     ans.push("\r");
   }
   for (let x in arr) {
     if (
-      (arr[x] == "\r" && ans[ans.length - 1] == "\r") ||
-      (arr[x] == "" && ans[ans.length - 1] == "")
+      (arr[x] === "\r" && ans[ans.length - 1] === "\r") ||
+      (arr[x] === "" && ans[ans.length - 1] === "")
     ) {
     } else {
       ans.push(arr[x]);
